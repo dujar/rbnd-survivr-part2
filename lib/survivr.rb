@@ -43,23 +43,25 @@ end
 
 def phase_two
     title "Phase Two"
-    immunized = []
+    @borneo.clear_tribes
+    @borneo.add_tribe(@merge_tribe)
   3.times do
     immune = @borneo.individual_immunity_challenge
-    immunized << immune
     puts "The immune member is #{immune}".green
     losers = @merge_tribe.tribal_council(immune: immune)
+    puts " The loser member is #{losers}"
   end
 end
 
 def phase_three
     title "Phase Three"
-  7.times do
-    immune = @borneo.individual_immunity_challenge
-    puts "The immune members are #{immune}".green
-    new_jury_member = @merge_tribe.tribal_council(immune: immune)
-    #puts "The new jury member is #{new_jury_member}".green
-    @jury.add_member(new_jury_member)
+    7.times do
+      immune = @borneo.individual_immunity_challenge
+      puts "The immune members are #{immune}".green
+      new_jury_member = @merge_tribe.tribal_council(immune: immune)
+      #puts "The new jury member is #{new_jury_member}".green
+      puts "The new jury member is #{new_jury_member}".yellow
+      @jury.add_member(new_jury_member)
   end 
 end
 
@@ -93,5 +95,6 @@ end
  phase_three #7 elminiations become jury members
  finalists = @merge_tribe.members #set finalists
  vote_results = @jury.cast_votes(finalists) #Jury members report votes
+ puts vote_results
  @jury.report_votes(vote_results) #Jury announces their votes
  @jury.announce_winner(vote_results) #Jury announces final winner

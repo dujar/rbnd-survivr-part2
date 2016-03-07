@@ -25,7 +25,6 @@ class Jury
       votes[key] += 1
       puts "member #{member} voted for #{key}".light_blue
     end
-   # puts "the winner is #{votes}"
     return votes
   end
 
