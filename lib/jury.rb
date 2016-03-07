@@ -23,14 +23,16 @@ class Jury
     @members.each do |member|
       key = finalists.sample
       votes[key] += 1
-      puts "member #{member} voted for #{key}"
+      puts "member #{member} voted for #{key}".light_blue
     end
    # puts "the winner is #{votes}"
     return votes
   end
 
   def report_votes final_votes
-    final_votes.each{|k,v| puts "#{k} has had #{v} votes".red}
+    final_votes.each do |k,v| 
+      puts v > 3 ? "#{k} has had #{v} votes".green : "#{k} has had #{v} votes".red
+    end
   end
   
   def announce_winner final_votes
