@@ -30,7 +30,7 @@ class Jury
 
   def report_votes final_votes
     final_votes.each do |k,v| 
-      puts v > 3 ? "#{k} has had #{v} votes".green : "#{k} has had #{v} votes".red
+      puts v == final_votes.values.max ? "#{k} has had #{v} votes".green : "#{k} has had #{v} votes".red
     end
   end
   

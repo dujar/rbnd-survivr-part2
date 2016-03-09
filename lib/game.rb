@@ -1,14 +1,8 @@
 class Game
   attr_reader :tribes
   
-  def initialize tribe1,tribe2
-   @tribes = []
-   @tribes << tribe1
-   @tribes << tribe2
-  end
-
-  def tribes
-    @tribes
+  def initialize *tribes
+   @tribes = tribes
   end
 
   def add_tribe tribe
@@ -16,7 +10,7 @@ class Game
   end 
 
   def immunity_challenge
-    @tribes.shuffle.first
+    @tribes.sample
   end
 
   def clear_tribes
