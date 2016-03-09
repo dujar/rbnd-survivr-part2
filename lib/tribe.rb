@@ -11,7 +11,6 @@ class Tribe
   end
 
   def tribal_council options = {}
-
     all_members = @members.reject{|member| member.to_s == options[:immune].to_s}
     @members.delete(all_members.sample)
   end

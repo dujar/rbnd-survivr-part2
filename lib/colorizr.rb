@@ -6,7 +6,7 @@ class String
     colors_hash.select do |key,value|
         class_methods = %Q{
            def #{key}
-               puts \"\e[#{value}m\#\{self\}\e[0m\"
+                \"\e[#{value}m\#\{self\}\e[0m\"
            end
         }
       class_eval(class_methods)
@@ -46,7 +46,7 @@ end
     colors_hash.select do |key,value|
         instance_methods = %Q{
            def #{key}(string)
-               puts \"\e[#{value}m\#\{string\}\e[0m\"
+                \"\e[#{value}m\#\{string\}\e[0m\"
            end
         }
       class_eval(instance_methods)
